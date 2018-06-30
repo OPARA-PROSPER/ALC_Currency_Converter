@@ -1,9 +1,8 @@
 const fromCurrency = document.getElementById("fromAmount");
 const toCurrency = document.getElementById("toAmount");
-const exchangeAmt = document.getElementById("amount").value;
+const exchangeAmt = document.getElementById("amount");
+const result = document.getElementById("result");
 const form = document.forms["form"];
-
-const https = require('https');
 
 
 function currency(element){
@@ -30,17 +29,21 @@ toCurrency.addEventListener('onload', currency(toCurrency));
 
 form.addEventListener('submit',function(e){
     e.preventDefault();
-    
-    function convert(){
-        const query = `${fromCurrency.value}_${toCurrency.value}`;
-        const url = `https://free.currencyconverterapi.com/api/v5/convert?q=${query}&compact=ultra`;
-    
-        fetch(url).then(response=> {
-            return response.json();
-        }).then(data=>{
-            var result = data * exchangeAmt;
-            console.log(data);
-        })
-    }
+      
+    let query = `${fromCurrency.value}_${toCurrency.value}`;
+      
+    let url = `https://free.currencyconverterapi.com/api/v5/convert?q=${query}&compact=ultra`;
+
+    fetch(url).then(response=>{
+        return response.json();
+    }).then(data=>{
+        const calc = data[query];
+        const amt = exchangeAmt.value * calc;
+        
+        result.value = amt;
+
+        console.log(amt);
+    })
+
 
 });
