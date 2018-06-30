@@ -40,9 +40,7 @@ form.addEventListener('submit',function(e){
         const calc = data[query];
         const amt = exchangeAmt.value * calc;
         
-        result.value = amt;
-
-        console.log(amt);
+        result.textContent = (amt).toFixed(4);
     })
 
 

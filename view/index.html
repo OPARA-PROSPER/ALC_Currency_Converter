@@ -9,22 +9,21 @@
 </head>
 
 <body>
+
+    <h1>Currency Converter</h1>
+
     <section>
-        <h1>Currency Converter app</h1>
         <form id="form">
-            <input type="text" placeholder="Amount" id="amount" value="1">
+            <input type="text" placeholder="Amount" id="amount">
             <select id="fromAmount"></select>
             <label>To</label>
             <select id="toAmount"></select>
             <input type="submit" value="Convert">
         </form>
 
-        <input type="text" disabled id="result">
+        <div id="result">amount</div>
     </section>
-
         
-    
-
     <script src="js/api.js"></script>
 </body>
 </html>
