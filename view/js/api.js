@@ -54,8 +54,8 @@ if(!navigator.serviceWorker){
   
   // Service worker registration code
   navigator.serviceWorker.register('../sw.js').
-  then(function(reg){
+  then(reg => {
     console.log("Service worker registrtaion Successful");
-  }).catch(function(error){
+  }).catch(error => {
     console.log("Service worker registration unsuccessful", error);
   });
